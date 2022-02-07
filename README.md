@@ -1,61 +1,36 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+Story of my project: 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+In my system I have two users, one is the Super Admin and the other is the Admin. Both of these users have dashboards. To access users dashboard, we must be registered and logged in. In my system, I validate a phone number that should not be lower than 10 and a unique email address. After successfully registering, registered users cannot log in as superadmin must approve them before they can log in. I have a forget password module that uses both a token and an email, and I use gmail for this module. Admins can log in after super admins activate their accounts, and can add and update items. Admins can check their account details and item details. Items details can be filtered by locally searching and sorting. Admins can check json data calling from HTTP client URL. The super admin can activate or inactivate an admin and can add and update admins' details, as well as view HTTP client URL json data. Admin details and URL json data can be filtered using locally search and sorting.Again, I have a Rest Api module for adding admins, adding items, and viewing admin and item details.
 
-## About Laravel
+System Requirements:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Php version = PHP 7.4.3 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Composer version = 2.2.5
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Laravel vesion = 7.2
 
-## Learning Laravel
+GuzzleHttp = 7.4
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Mysql = 8.0
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Apache2 = 2.4
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Technical Overview:
 
-### Premium Partners
+1. I use Laravel in the back-end and bootstrap as UI and UI for the dashboard as Adminlte 3.1.0. 
+2. I use auth as middleware for login. 
+3. I use a two observer class for admin and item to create a unique id for admin and item automatically when admin and item create.
+4. I define an observer class in providers, EventServiceProvider.
+5. For the forget-password module, I use token and email as Gmail to reset my password.
+6. I use GUZZLEhttp to get JSON data from the URL and show the data in the blade.
+7. For REST API, I use environment key and value, key as URL and value as http://localhost/
+8. So whenever I want to call API, instead of using http://localhost/api/route just simply, I can use {{URL}}api/route
+9. In every method I use the try-catch exception to get the error message.
+10. For the web route I use the web.php and for the API route I use the api.php.
+11. For API, I use error status code 200 as success, 400 as an error.
+12. Lastly, I keep separate UI for the front-end and dashboard. Different sidebar menu for Super-admin and admin. And only active users can log in. Super-admin will activate and inactivate the admin. 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
