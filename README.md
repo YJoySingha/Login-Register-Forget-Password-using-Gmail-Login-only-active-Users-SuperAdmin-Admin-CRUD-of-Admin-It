@@ -17,7 +17,20 @@ Mysql = 8.0
 Apache2 = 2.4
 
 
+Technical Overview:
 
+1. I use Laravel in the back-end and bootstrap as UI and UI for the dashboard as Adminlte 3.1.0. 
+2. I use auth as middleware for login. 
+3. I use a two observer class for admin and item to create a unique id for admin and item automatically when admin and item create.
+4. I define an observer class in providers, EventServiceProvider.
+5. For the forget-password module, I use token and email as Gmail to reset my password.
+6. I use GUZZLEhttp to get JSON data from the URL and show the data in the blade.
+7. For REST API, I use environment key and value, key as URL and value as http://localhost/
+8. So whenever I want to call API, instead of using http://localhost/api/route just simply, I can use {{URL}}api/route
+9. In every method I use the try-catch exception to get the error message.
+10. For the web route I use the web.php and for the API route I use the api.php.
+11. For API, I use error status code 200 as success, 400 as an error.
+12. Lastly, I keep separate UI for the front-end and dashboard. Different sidebar menu for Super-admin and admin. And only active users can log in. Super-admin will activate and inactivate the admin. 
 
 
 
