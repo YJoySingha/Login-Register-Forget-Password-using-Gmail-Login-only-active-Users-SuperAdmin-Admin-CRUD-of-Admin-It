@@ -4,11 +4,11 @@ In my system I have two users, one is the Super Admin and the other is the Admin
 
 System Requirements:
 
-Php version = PHP 7.4.3 
+Php version >= PHP 7.4.3 
 
-Composer version = 2.2.5
+Composer version >= 2.2.5
 
-Laravel vesion = 7.2
+Laravel vesion >= 7.2
 
 GuzzleHttp = 7.4
 
